@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>seajs加载顺序</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="width: 1000px;height: 100px;background: #000">
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="./js/global.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        alias: {
+        	"a":"/seajs/js/a.js",
+			"b":"/seajs/js/b.js",
+			"c":"/seajs/js/c.js"
+        },
+		preload: ["b","c"]
+    });
+    seajs.use("",function(){
+		console.log("doing use")
+	});
+</script>
